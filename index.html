@@ -10,16 +10,27 @@
 </head>
 <body>
 <!-- The program body -->
-    <main>
-<!--    going to be the title of it and close button  -->
-        <header class="TitleBar">
-            <h1></h1>
+    <main class="TerminalWindow">
+        <header class="TerminalHeader">
+            <section class="TrafficLights">
+                <span class="TrafficLightRed"></span>
+                <span class="TrafficLightYellow"></span>
+                <span class="TrafficLightGreen"></span>
+            </section>
+            <span class="TerminalTitle">yourname@portfolio: ~</span>
         </header>
+        <section class="TerminalBody" id="terminal">
+            <span class="LineOutput">
+                Welcome to <span class="Highlight">Shaun Laing's</span> terminal portfolio.
+            </span>
 
-<!--    going to be the main terminal    -->
-        <section class="Terminal">
-
+            <span class="LineOutput">
+                Type <span class="Highlight">help</span> to see a list of commands.
+            </span>
+            <br />
         </section>
+
+        <input type="text" id="hidden-input" autocomplete="off">
     </main>
 
     <!-- Script do not right below-->
