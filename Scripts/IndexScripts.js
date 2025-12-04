@@ -29,6 +29,7 @@ hiddenInput.addEventListener("keydown", (e) => {
     else if (e.key === "Enter") {
         handleCommand(currentCommand.trim())
         currentCommand = "";
+        finialiseLine();
         createInputLine();
     }
     else if (e.key.length === 1) {
@@ -36,6 +37,11 @@ hiddenInput.addEventListener("keydown", (e) => {
         updateInputLine();
     }
 });
+
+function finialiseLine() {
+    const cursor = terminal.querySelector(".Cursor");
+    cursor.remove();
+}
 
 function createInputLine() {
     const line = document.createElement("div");
