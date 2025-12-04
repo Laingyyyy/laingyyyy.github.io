@@ -1,2 +1,144 @@
-﻿
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    font-family: "Fira Code", "Consolas", monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 16px;
+}
+
+/* Terminal Window */
+.TerminalWindow {
+    background-color: #1f2833;
+    border-radius: 8px;
+    border: 1px solid #45a29e;
+    max-width: 900px;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+/* header bar */
+.TerminalHeader {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #0b0c10;
+    border-bottom: 1px solid #45a29e;
+    font-size: 0.85rem;
+}
+
+.TrafficLights {
+    display: flex;
+    gap: 6px;
+    margin-right: 10px;
+}
+
+.TrafficLight {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.TrafficLight.Red {
+    background-color: #ff5f57;
+}
+
+.TrafficLight.Yellow {
+    background-color: #ffbd2e;
+}
+
+.TrafficLight.Green {
+    background-color: #28c840;
+}
+
+.TerminalTitle {
+    opacity: 0.7;
+}
+
+/* Terminal Body */
+.TerminalBody {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.TerminalBody::-webkit-scrollbar {
+    background-color: #45a29e;
+}
+
+.Line {
+    display: block;
+    white-space: pre-wrap;
+}
+
+/* Text Colours */
+.Prompt {
+    color: #66fcf1;
+}
+
+.Command {
+    color: #c5c6c7;
+}
+
+.Output {
+    margin-left: 2ch;
+}
+
+.Highlight {
+    color: #66fcf1;
+    font-weight: bold;
+}
+
+/* links */
+a {
+    color: #66fcf1;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Cursor */
+.Cursor {
+    display: inline-block;
+    width: 8px;
+    background-color: #c5c6c7;
+    margin-left: 2px;
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Hidden Input */
+#hiddenInput {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+    .TerminalWindow {
+        height: 85vh;
+    }
+    .TerminalBody {
+        font-size: 0.85rem;
+    }
+}
