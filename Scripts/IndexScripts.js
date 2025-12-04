@@ -29,6 +29,7 @@ hiddenInput.addEventListener("keydown", (e) => {
     else if (e.key === "Enter") {
         handleCommand(currentCommand.trim())
         currentCommand = "";
+        finialiseLine();
         createInputLine();
     }
     else if (e.key.length === 1) {
@@ -37,21 +38,29 @@ hiddenInput.addEventListener("keydown", (e) => {
     }
 });
 
+function finialiseLine() {
+    const cursor = terminal.querySelector(".Cursor");
+    cursor.remove();
+}
+
 function createInputLine() {
     const line = document.createElement("div");
-    line.className = "line input-line";
+    line.className = "Line input-line";
 
     const promptSpan = document.createElement("span");
-    promptSpan.className = "prompt";
+    promptSpan.className = "Prompt";
     promptSpan.textContent = "ShaunLaing@portfolio:~$ ";
 
+    const old = document.getElementById("current-command");
+    if (old) old.removeAttribute("id");
+
     const commandSpan = document.createElement("span");
-    commandSpan.className = "command";
+    commandSpan.className = "Command";
     commandSpan.id = "current-command";
     commandSpan.textContent = "";
 
     const cursorSpan = document.createElement("span");
-    cursorSpan.className = "cursor";
+    cursorSpan.className = "Cursor";
     cursorSpan.textContent = " ";
 
     line.appendChild(promptSpan);
@@ -68,7 +77,7 @@ function updateInputLine() {
 }
 
 function handleCommand(command) {
-    const lastCursor = terminal.querySelector(".input-line . cursor:last-child");
+    const lastCursor = terminal.querySelector(".input-line .cursor:last-child");
 
     if (lastCursor) {
         lastCursor.remove();
@@ -90,8 +99,8 @@ function printOutput(text) {
     const lines = Array.isArray(text) ? text : [text];
     lines.forEach((line) => {
       const span = document.createElement("span");
-      span.className = "line output";
-      span.textContent = line;
+      span.className = "Line Output";
+      span.innerHTML = line;
       terminal.appendChild(span);
     });
 
@@ -120,9 +129,8 @@ function showAbout() {
         "I am Shaun Laing, A Software Developer",
         "I enjoy working with APIs, databases and solving real world problems.",
         "",
-
-        "Github: https://github.com/Laingyyyy",
-        "LinkedIn: https://www.linkedin.com/in/shaun-laing-064385263/"
+        `Github: <a href="https://github.com/Laingyyyy" target="_blank" >Laingyy</a>`,
+        `LinkedIn: <a href="https://www.linkedin.com/in/shaun-laing-064385263/" target="_blank">Shaun Laing</a>"`
     ]);
 }
 
@@ -140,12 +148,12 @@ function showProjects() {
         "Projects:",
         "1) Terminal Portfolio",
         "A Simple Terminal Portfolio Website",
-        "Website: https://laingyyyy.github.io/  Repo: https://github.com/Laingyyyy/laingyyyy.github.io",
+        `<a href="https://laingyyyy.github.io/" target="_blank">Website Link</a>  <a href="https://github.com/Laingyyyy/laingyyyy.github.io" target="_blank">Repo</a>`,
         "",
 
         "2) Battle Sim",
         "A Console Battle Sim Made in C#",
-        "Repo: https://github.com/Laingyyyy/BattleSim"
+        `<a href="https://github.com/Laingyyyy/BattleSim" target="_blank">Repo</a>`
     ]);
 }
 
