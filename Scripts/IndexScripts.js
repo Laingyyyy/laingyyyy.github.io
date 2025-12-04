@@ -51,6 +51,9 @@ function createInputLine() {
     promptSpan.className = "Prompt";
     promptSpan.textContent = "ShaunLaing@portfolio:~$ ";
 
+    const old = document.getElementById("current-command");
+    if (old) old.removeAttribute("id");
+
     const commandSpan = document.createElement("span");
     commandSpan.className = "Command";
     commandSpan.id = "current-command";
