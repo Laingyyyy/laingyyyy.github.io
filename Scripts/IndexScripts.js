@@ -68,7 +68,7 @@ function updateInputLine() {
 }
 
 function handleCommand(command) {
-    const lastCursor = terminal.querySelector(".input-line . cursor:last-child");
+    const lastCursor = terminal.querySelector(".input-line .cursor:last-child");
 
     if (lastCursor) {
         lastCursor.remove();
